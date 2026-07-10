@@ -10,112 +10,244 @@ exports[`ResultsScreen renders the three result cards for a fixed name and date 
   }
 >
   <View
-    accessibilityLabel="Psychic number: 23/5"
-    accessible={true}
-    style={
+    accessibilityLabel="Psychic number: 23/5. TODO(vishal): short interpretation for 5"
+    accessibilityRole="button"
+    accessibilityState={
       {
-        "borderColor": "#ddd",
-        "borderRadius": 12,
-        "borderWidth": 1,
-        "marginBottom": 12,
-        "padding": 16,
+        "busy": undefined,
+        "checked": undefined,
+        "disabled": undefined,
+        "expanded": undefined,
+        "selected": undefined,
       }
     }
+    accessibilityValue={
+      {
+        "max": undefined,
+        "min": undefined,
+        "now": undefined,
+        "text": undefined,
+      }
+    }
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    testID="psychic-card"
   >
-    <Text
+    <View
       style={
         {
-          "color": "#555",
-          "fontSize": 14,
-          "fontWeight": "600",
-          "marginBottom": 4,
+          "borderColor": "#ddd",
+          "borderRadius": 12,
+          "borderWidth": 1,
+          "marginBottom": 12,
+          "padding": 16,
         }
       }
     >
-      Psychic
-    </Text>
-    <Text
-      style={
-        {
-          "fontSize": 28,
-          "fontWeight": "700",
+      <Text
+        style={
+          {
+            "color": "#555",
+            "fontSize": 14,
+            "fontWeight": "600",
+            "marginBottom": 4,
+          }
         }
-      }
-    >
-      23/5
-    </Text>
+      >
+        Psychic
+      </Text>
+      <Text
+        style={
+          {
+            "fontSize": 28,
+            "fontWeight": "700",
+          }
+        }
+      >
+        23/5
+      </Text>
+      <Text
+        style={
+          {
+            "color": "#333",
+            "fontSize": 14,
+            "marginTop": 8,
+          }
+        }
+      >
+        TODO(vishal): short interpretation for 5
+      </Text>
+    </View>
   </View>
   <View
-    accessibilityLabel="Destiny number: 25/7"
-    accessible={true}
-    style={
+    accessibilityLabel="Destiny number: 25/7. TODO(vishal): short interpretation for 7"
+    accessibilityRole="button"
+    accessibilityState={
       {
-        "borderColor": "#ddd",
-        "borderRadius": 12,
-        "borderWidth": 1,
-        "marginBottom": 12,
-        "padding": 16,
+        "busy": undefined,
+        "checked": undefined,
+        "disabled": undefined,
+        "expanded": undefined,
+        "selected": undefined,
       }
     }
+    accessibilityValue={
+      {
+        "max": undefined,
+        "min": undefined,
+        "now": undefined,
+        "text": undefined,
+      }
+    }
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    testID="destiny-card"
   >
-    <Text
+    <View
       style={
         {
-          "color": "#555",
-          "fontSize": 14,
-          "fontWeight": "600",
-          "marginBottom": 4,
+          "borderColor": "#ddd",
+          "borderRadius": 12,
+          "borderWidth": 1,
+          "marginBottom": 12,
+          "padding": 16,
         }
       }
     >
-      Destiny
-    </Text>
-    <Text
-      style={
-        {
-          "fontSize": 28,
-          "fontWeight": "700",
+      <Text
+        style={
+          {
+            "color": "#555",
+            "fontSize": 14,
+            "fontWeight": "600",
+            "marginBottom": 4,
+          }
         }
-      }
-    >
-      25/7
-    </Text>
+      >
+        Destiny
+      </Text>
+      <Text
+        style={
+          {
+            "fontSize": 28,
+            "fontWeight": "700",
+          }
+        }
+      >
+        25/7
+      </Text>
+      <Text
+        style={
+          {
+            "color": "#333",
+            "fontSize": 14,
+            "marginTop": 8,
+          }
+        }
+      >
+        TODO(vishal): short interpretation for 7
+      </Text>
+    </View>
   </View>
   <View
-    accessibilityLabel="Name number: 12/3"
-    accessible={true}
-    style={
+    accessibilityLabel="Name number: 12/3. TODO(vishal): short interpretation for 3"
+    accessibilityRole="button"
+    accessibilityState={
       {
-        "borderColor": "#ddd",
-        "borderRadius": 12,
-        "borderWidth": 1,
-        "marginBottom": 12,
-        "padding": 16,
+        "busy": undefined,
+        "checked": undefined,
+        "disabled": undefined,
+        "expanded": undefined,
+        "selected": undefined,
       }
     }
+    accessibilityValue={
+      {
+        "max": undefined,
+        "min": undefined,
+        "now": undefined,
+        "text": undefined,
+      }
+    }
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    testID="name-card"
   >
-    <Text
+    <View
       style={
         {
-          "color": "#555",
-          "fontSize": 14,
-          "fontWeight": "600",
-          "marginBottom": 4,
+          "borderColor": "#ddd",
+          "borderRadius": 12,
+          "borderWidth": 1,
+          "marginBottom": 12,
+          "padding": 16,
         }
       }
     >
-      Name
-    </Text>
-    <Text
-      style={
-        {
-          "fontSize": 28,
-          "fontWeight": "700",
+      <Text
+        style={
+          {
+            "color": "#555",
+            "fontSize": 14,
+            "fontWeight": "600",
+            "marginBottom": 4,
+          }
         }
-      }
-    >
-      12/3
-    </Text>
+      >
+        Name
+      </Text>
+      <Text
+        style={
+          {
+            "fontSize": 28,
+            "fontWeight": "700",
+          }
+        }
+      >
+        12/3
+      </Text>
+      <Text
+        style={
+          {
+            "color": "#333",
+            "fontSize": 14,
+            "marginTop": 8,
+          }
+        }
+      >
+        TODO(vishal): short interpretation for 3
+      </Text>
+    </View>
   </View>
   <View
     accessibilityLabel="Calculate again"

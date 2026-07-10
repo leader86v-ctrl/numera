@@ -1,19 +1,32 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { useState } from 'react';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 export interface ResultCardProps {
   title: string;
   compound: number;
   single: number;
+  short: string;
+  detail: string;
 }
 
-export function ResultCard({ title, compound, single }: ResultCardProps) {
+export function ResultCard({ title, compound, single, short, detail }: ResultCardProps) {
+  const [expanded, setExpanded] = useState(false);
   const value = `${compound}/${single}`;
+  const description = expanded ? detail : short;
 
   return (
-    <View style={styles.card} accessible accessibilityLabel={`${title} number: ${value}`}>
-      <Text style={styles.title}>{title}</Text>
-      <Text style={styles.value}>{value}</Text>
-    </View>
+    <Pressable
+      onPress={() => setExpanded((current) => !current)}
+      accessibilityRole="button"
+      accessibilityLabel={`${title} number: ${value}. ${description}`}
+      testID={`${title.toLowerCase()}-card`}
+    >
+      <View style={styles.card}>
+        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.value}>{value}</Text>
+        <Text style={styles.description}>{description}</Text>
+      </View>
+    </Pressable>
   );
 }
 
@@ -34,5 +47,10 @@ const styles = StyleSheet.create({
   value: {
     fontSize: 28,
     fontWeight: '700',
+  },
+  description: {
+    marginTop: 8,
+    fontSize: 14,
+    color: '#333',
   },
 });
