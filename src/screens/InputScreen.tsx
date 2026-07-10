@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
+import type { BirthDate } from '../logic/dateNumbers';
 
 const MONTHS = [
   { value: 1, label: 'January' },
@@ -36,12 +37,6 @@ function fromOptionValue(value: string): number | null {
 function isRealCalendarDate(day: number, month: number, year: number): boolean {
   const daysInMonth = new Date(year, month, 0).getDate();
   return day >= 1 && day <= daysInMonth;
-}
-
-export interface BirthDate {
-  day: number;
-  month: number;
-  year: number;
 }
 
 export interface InputScreenProps {

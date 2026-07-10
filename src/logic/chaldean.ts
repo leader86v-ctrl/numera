@@ -1,3 +1,5 @@
+import { reduce } from './reduce';
+
 const CHALDEAN_GROUPS: readonly { value: number; letters: string }[] = [
   { value: 1, letters: 'AIJQY' },
   { value: 2, letters: 'BKR' },
@@ -29,4 +31,8 @@ export function nameValue(name: string): number {
     sum += letterValue(char);
   }
   return sum;
+}
+
+export function nameNumber(name: string): { compound: number; single: number } {
+  return reduce(nameValue(name));
 }

@@ -1,4 +1,4 @@
-import { letterValue, nameValue } from './chaldean';
+import { letterValue, nameNumber, nameValue } from './chaldean';
 
 describe('letterValue', () => {
   it('maps known letters to their Chaldean values', () => {
@@ -35,5 +35,11 @@ describe('nameValue', () => {
 
   it('ignores spaces, hyphens, and apostrophes', () => {
     expect(nameValue("Mary-Jane O'Neil")).toBe(nameValue('MaryJane ONeil'));
+  });
+});
+
+describe('nameNumber', () => {
+  it('reduces the name value to compound and single', () => {
+    expect(nameNumber('ANNA')).toEqual({ compound: 12, single: 3 });
   });
 });
