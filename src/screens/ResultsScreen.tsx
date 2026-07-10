@@ -1,5 +1,6 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { ResultCard } from '../components/ResultCard';
+import { getInterpretation } from '../content/interpretations';
 import { nameNumber } from '../logic/chaldean';
 import { destinyNumber, psychicNumber, type BirthDate } from '../logic/dateNumbers';
 
@@ -14,11 +15,33 @@ export function ResultsScreen({ name, date, onCalculateAgain }: ResultsScreenPro
   const destiny = destinyNumber(date.day, date.month, date.year);
   const nameResult = nameNumber(name);
 
+  const psychicInterpretation = getInterpretation(psychic.compound, psychic.single);
+  const destinyInterpretation = getInterpretation(destiny.compound, destiny.single);
+  const nameInterpretation = getInterpretation(nameResult.compound, nameResult.single);
+
   return (
     <View style={styles.container}>
-      <ResultCard title="Psychic" compound={psychic.compound} single={psychic.single} />
-      <ResultCard title="Destiny" compound={destiny.compound} single={destiny.single} />
-      <ResultCard title="Name" compound={nameResult.compound} single={nameResult.single} />
+      <ResultCard
+        title="Psychic"
+        compound={psychic.compound}
+        single={psychic.single}
+        short={psychicInterpretation.short}
+        detail={psychicInterpretation.detail}
+      />
+      <ResultCard
+        title="Destiny"
+        compound={destiny.compound}
+        single={destiny.single}
+        short={destinyInterpretation.short}
+        detail={destinyInterpretation.detail}
+      />
+      <ResultCard
+        title="Name"
+        compound={nameResult.compound}
+        single={nameResult.single}
+        short={nameInterpretation.short}
+        detail={nameInterpretation.detail}
+      />
 
       <Pressable
         accessibilityRole="button"
