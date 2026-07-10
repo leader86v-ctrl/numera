@@ -1,0 +1,175 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ResultsScreen renders the three result cards for a fixed name and date 1`] = `
+<View
+  style={
+    {
+      "flex": 1,
+      "padding": 24,
+    }
+  }
+>
+  <View
+    accessibilityLabel="Psychic number: 23/5"
+    accessible={true}
+    style={
+      {
+        "borderColor": "#ddd",
+        "borderRadius": 12,
+        "borderWidth": 1,
+        "marginBottom": 12,
+        "padding": 16,
+      }
+    }
+  >
+    <Text
+      style={
+        {
+          "color": "#555",
+          "fontSize": 14,
+          "fontWeight": "600",
+          "marginBottom": 4,
+        }
+      }
+    >
+      Psychic
+    </Text>
+    <Text
+      style={
+        {
+          "fontSize": 28,
+          "fontWeight": "700",
+        }
+      }
+    >
+      23/5
+    </Text>
+  </View>
+  <View
+    accessibilityLabel="Destiny number: 25/7"
+    accessible={true}
+    style={
+      {
+        "borderColor": "#ddd",
+        "borderRadius": 12,
+        "borderWidth": 1,
+        "marginBottom": 12,
+        "padding": 16,
+      }
+    }
+  >
+    <Text
+      style={
+        {
+          "color": "#555",
+          "fontSize": 14,
+          "fontWeight": "600",
+          "marginBottom": 4,
+        }
+      }
+    >
+      Destiny
+    </Text>
+    <Text
+      style={
+        {
+          "fontSize": 28,
+          "fontWeight": "700",
+        }
+      }
+    >
+      25/7
+    </Text>
+  </View>
+  <View
+    accessibilityLabel="Name number: 12/3"
+    accessible={true}
+    style={
+      {
+        "borderColor": "#ddd",
+        "borderRadius": 12,
+        "borderWidth": 1,
+        "marginBottom": 12,
+        "padding": 16,
+      }
+    }
+  >
+    <Text
+      style={
+        {
+          "color": "#555",
+          "fontSize": 14,
+          "fontWeight": "600",
+          "marginBottom": 4,
+        }
+      }
+    >
+      Name
+    </Text>
+    <Text
+      style={
+        {
+          "fontSize": 28,
+          "fontWeight": "700",
+        }
+      }
+    >
+      12/3
+    </Text>
+  </View>
+  <View
+    accessibilityLabel="Calculate again"
+    accessibilityRole="button"
+    accessibilityState={
+      {
+        "busy": undefined,
+        "checked": undefined,
+        "disabled": undefined,
+        "expanded": undefined,
+        "selected": undefined,
+      }
+    }
+    accessibilityValue={
+      {
+        "max": undefined,
+        "min": undefined,
+        "now": undefined,
+        "text": undefined,
+      }
+    }
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      {
+        "alignItems": "center",
+        "backgroundColor": "#eee",
+        "borderRadius": 8,
+        "marginTop": 12,
+        "padding": 14,
+      }
+    }
+    testID="calculate-again-button"
+  >
+    <Text
+      style={
+        {
+          "fontSize": 16,
+          "fontWeight": "600",
+        }
+      }
+    >
+      Calculate again
+    </Text>
+  </View>
+</View>
+`;

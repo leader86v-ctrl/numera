@@ -1,5 +1,11 @@
 import { reduce } from './reduce';
 
+export interface BirthDate {
+  day: number;
+  month: number;
+  year: number;
+}
+
 export class InvalidDateError extends Error {
   constructor(message: string) {
     super(message);
