@@ -11,6 +11,11 @@ export interface ResultsScreenProps {
   onCalculateAgain: () => void;
 }
 
+function formatDate(date: BirthDate): string {
+  const { day, month, year } = date;
+  return `${String(day).padStart(2, '0')}/${String(month).padStart(2, '0')}/${year}`;
+}
+
 export function ResultsScreen({ name, date, onCalculateAgain }: ResultsScreenProps) {
   const theme = useTheme();
   const { psychic, destiny, name: nameResult } = calculateResult(name, date);
@@ -21,6 +26,11 @@ export function ResultsScreen({ name, date, onCalculateAgain }: ResultsScreenPro
 
   return (
     <View style={[styles.container, { backgroundColor: theme.background }]}>
+      <Text style={[styles.heading, { color: theme.text }]}>Your Numbers</Text>
+      <Text style={[styles.context, { color: theme.mutedText }]}>
+        For {name} · born {formatDate(date)}
+      </Text>
+
       <ResultCard
         title="Psychic"
         compound={psychic.compound}
@@ -60,6 +70,15 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 24,
+  },
+  heading: {
+    fontSize: 22,
+    fontWeight: '800',
+    marginBottom: 4,
+  },
+  context: {
+    fontSize: 14,
+    marginBottom: 20,
   },
   button: {
     marginTop: 12,

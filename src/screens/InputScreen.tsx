@@ -44,15 +44,9 @@ export interface InputScreenProps {
   initialName?: string;
   initialDate?: BirthDate;
   onCalculate: (name: string, date: BirthDate) => void;
-  onViewHistory?: () => void;
 }
 
-export function InputScreen({
-  initialName = '',
-  initialDate,
-  onCalculate,
-  onViewHistory,
-}: InputScreenProps) {
+export function InputScreen({ initialName = '', initialDate, onCalculate }: InputScreenProps) {
   const theme = useTheme();
   const [name, setName] = useState(initialName);
   const [day, setDay] = useState<number | null>(initialDate?.day ?? null);
@@ -77,6 +71,10 @@ export function InputScreen({
 
   return (
     <View style={[styles.container, { backgroundColor: theme.background }]}>
+      <Text style={[styles.subtitle, { color: theme.mutedText }]}>
+        Enter your full name and birth date to reveal your Psychic, Destiny, and Name numbers.
+      </Text>
+
       <Text style={[styles.label, { color: theme.text }]}>Full name</Text>
       <TextInput
         style={[styles.input, { borderColor: theme.cardBorder, color: theme.text }]}
@@ -150,18 +148,6 @@ export function InputScreen({
           Calculate
         </Text>
       </Pressable>
-
-      {onViewHistory && (
-        <Pressable
-          accessibilityRole="button"
-          accessibilityLabel="View history"
-          onPress={onViewHistory}
-          testID="view-history-button"
-          style={styles.historyLink}
-        >
-          <Text style={[styles.historyLinkText, { color: theme.primary }]}>View history</Text>
-        </Pressable>
-      )}
     </View>
   );
 }
@@ -171,6 +157,11 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 24,
     gap: 8,
+  },
+  subtitle: {
+    fontSize: 15,
+    lineHeight: 21,
+    marginBottom: 8,
   },
   label: {
     fontSize: 16,
@@ -201,14 +192,6 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontSize: 16,
-    fontWeight: '600',
-  },
-  historyLink: {
-    marginTop: 16,
-    alignItems: 'center',
-  },
-  historyLinkText: {
-    fontSize: 15,
     fontWeight: '600',
   },
 });
