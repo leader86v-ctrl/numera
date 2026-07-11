@@ -4,6 +4,7 @@ import { SafeAreaView, StyleSheet } from 'react-native';
 import { InputScreen } from './src/screens/InputScreen';
 import { ResultsScreen } from './src/screens/ResultsScreen';
 import { HistoryScreen } from './src/screens/HistoryScreen';
+import { useTheme } from './src/components/theme';
 import { calculateResult } from './src/logic/calculateResult';
 import type { BirthDate } from './src/logic/dateNumbers';
 import {
@@ -21,6 +22,7 @@ interface Entry {
 type View = 'input' | 'results' | 'history';
 
 export default function App() {
+  const theme = useTheme();
   const [lastEntry, setLastEntry] = useState<Entry | null>(null);
   const [view, setView] = useState<View>('input');
   const [history, setHistory] = useState<HistoryEntry[]>([]);
@@ -50,7 +52,7 @@ export default function App() {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView role="main" style={[styles.container, { backgroundColor: theme.background }]}>
       {view === 'results' && lastEntry && (
         <ResultsScreen
           name={lastEntry.name}
@@ -82,6 +84,5 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
   },
 });

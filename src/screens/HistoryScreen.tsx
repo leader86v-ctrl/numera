@@ -1,4 +1,5 @@
 import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
+import { useTheme } from '../components/theme';
 import type { HistoryEntry } from '../logic/history';
 
 export interface HistoryScreenProps {
@@ -24,8 +25,10 @@ export function HistoryScreen({
   onDeleteEntry,
   onBack,
 }: HistoryScreenProps) {
+  const theme = useTheme();
+
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
       <Pressable
         accessibilityRole="button"
         accessibilityLabel="Back"
@@ -33,17 +36,22 @@ export function HistoryScreen({
         testID="history-back-button"
         style={styles.backButton}
       >
-        <Text style={styles.backButtonText}>Back</Text>
+        <Text style={[styles.backButtonText, { color: theme.primary }]}>Back</Text>
       </Pressable>
 
       {entries.length === 0 ? (
-        <Text style={styles.emptyText}>No calculations yet.</Text>
+        <Text style={[styles.emptyText, { color: theme.mutedText }]}>No calculations yet.</Text>
       ) : (
         <FlatList
           data={entries}
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
-            <View style={styles.row}>
+            <View
+              style={[
+                styles.row,
+                { borderColor: theme.cardBorder, backgroundColor: theme.cardBackground },
+              ]}
+            >
               <Pressable
                 accessibilityRole="button"
                 accessibilityLabel={`View ${item.name}'s calculation from ${formatDate(item)}`}
@@ -51,9 +59,13 @@ export function HistoryScreen({
                 testID={`history-entry-${item.id}`}
                 style={styles.entryButton}
               >
-                <Text style={styles.entryName}>{item.name}</Text>
-                <Text style={styles.entryDate}>{formatDate(item)}</Text>
-                <Text style={styles.entryResults}>{formatResults(item)}</Text>
+                <Text style={[styles.entryName, { color: theme.text }]}>{item.name}</Text>
+                <Text style={[styles.entryDate, { color: theme.mutedText }]}>
+                  {formatDate(item)}
+                </Text>
+                <Text style={[styles.entryResults, { color: theme.text }]}>
+                  {formatResults(item)}
+                </Text>
               </Pressable>
               <Pressable
                 accessibilityRole="button"
@@ -62,7 +74,7 @@ export function HistoryScreen({
                 testID={`history-delete-${item.id}`}
                 style={styles.deleteButton}
               >
-                <Text style={styles.deleteButtonText}>Delete</Text>
+                <Text style={[styles.deleteButtonText, { color: theme.danger }]}>Delete</Text>
               </Pressable>
             </View>
           )}
@@ -84,17 +96,14 @@ const styles = StyleSheet.create({
   backButtonText: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#2f6feb',
   },
   emptyText: {
     fontSize: 16,
-    color: '#555',
   },
   row: {
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: '#ddd',
     borderRadius: 12,
     padding: 12,
     marginBottom: 12,
@@ -108,12 +117,10 @@ const styles = StyleSheet.create({
   },
   entryDate: {
     fontSize: 14,
-    color: '#555',
     marginTop: 2,
   },
   entryResults: {
     fontSize: 14,
-    color: '#333',
     marginTop: 4,
   },
   deleteButton: {
@@ -121,7 +128,6 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
   },
   deleteButtonText: {
-    color: '#c0392b',
     fontWeight: '600',
   },
 });

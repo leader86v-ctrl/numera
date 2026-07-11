@@ -1,5 +1,6 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { ResultCard } from '../components/ResultCard';
+import { useTheme } from '../components/theme';
 import { getInterpretation } from '../content/interpretations';
 import { calculateResult } from '../logic/calculateResult';
 import type { BirthDate } from '../logic/dateNumbers';
@@ -11,6 +12,7 @@ export interface ResultsScreenProps {
 }
 
 export function ResultsScreen({ name, date, onCalculateAgain }: ResultsScreenProps) {
+  const theme = useTheme();
   const { psychic, destiny, name: nameResult } = calculateResult(name, date);
 
   const psychicInterpretation = getInterpretation(psychic.compound, psychic.single);
@@ -18,7 +20,7 @@ export function ResultsScreen({ name, date, onCalculateAgain }: ResultsScreenPro
   const nameInterpretation = getInterpretation(nameResult.compound, nameResult.single);
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
       <ResultCard
         title="Psychic"
         compound={psychic.compound}
@@ -46,9 +48,9 @@ export function ResultsScreen({ name, date, onCalculateAgain }: ResultsScreenPro
         accessibilityLabel="Calculate again"
         onPress={onCalculateAgain}
         testID="calculate-again-button"
-        style={styles.button}
+        style={[styles.button, { backgroundColor: theme.cardBorder }]}
       >
-        <Text style={styles.buttonText}>Calculate again</Text>
+        <Text style={[styles.buttonText, { color: theme.text }]}>Calculate again</Text>
       </Pressable>
     </View>
   );
@@ -64,7 +66,6 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     padding: 14,
     alignItems: 'center',
-    backgroundColor: '#eee',
   },
   buttonText: {
     fontSize: 16,

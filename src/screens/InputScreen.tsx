@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
+import { useTheme } from '../components/theme';
 import type { BirthDate } from '../logic/dateNumbers';
 
 const MONTHS = [
@@ -52,6 +53,7 @@ export function InputScreen({
   onCalculate,
   onViewHistory,
 }: InputScreenProps) {
+  const theme = useTheme();
   const [name, setName] = useState(initialName);
   const [day, setDay] = useState<number | null>(initialDate?.day ?? null);
   const [month, setMonth] = useState<number | null>(initialDate?.month ?? null);
@@ -74,19 +76,20 @@ export function InputScreen({
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.label}>Full name</Text>
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
+      <Text style={[styles.label, { color: theme.text }]}>Full name</Text>
       <TextInput
-        style={styles.input}
+        style={[styles.input, { borderColor: theme.cardBorder, color: theme.text }]}
         value={name}
         onChangeText={setName}
         placeholder="Full name"
+        placeholderTextColor={theme.mutedText}
         accessibilityLabel="Full name"
         autoCapitalize="words"
         testID="name-input"
       />
 
-      <Text style={styles.label}>Birth date</Text>
+      <Text style={[styles.label, { color: theme.text }]}>Birth date</Text>
       <View style={styles.dateRow}>
         <Picker
           selectedValue={toOptionValue(day)}
@@ -137,11 +140,15 @@ export function InputScreen({
         testID="calculate-button"
         style={({ pressed }) => [
           styles.button,
-          !canCalculate && styles.buttonDisabled,
+          { backgroundColor: canCalculate ? theme.primary : theme.disabled },
           pressed && canCalculate && styles.buttonPressed,
         ]}
       >
-        <Text style={styles.buttonText}>Calculate</Text>
+        <Text
+          style={[styles.buttonText, { color: canCalculate ? theme.onPrimary : theme.mutedText }]}
+        >
+          Calculate
+        </Text>
       </Pressable>
 
       {onViewHistory && (
@@ -152,7 +159,7 @@ export function InputScreen({
           testID="view-history-button"
           style={styles.historyLink}
         >
-          <Text style={styles.historyLinkText}>View history</Text>
+          <Text style={[styles.historyLinkText, { color: theme.primary }]}>View history</Text>
         </Pressable>
       )}
     </View>
@@ -172,7 +179,6 @@ const styles = StyleSheet.create({
   },
   input: {
     borderWidth: 1,
-    borderColor: '#999',
     borderRadius: 8,
     padding: 12,
     fontSize: 16,
@@ -186,19 +192,14 @@ const styles = StyleSheet.create({
   },
   button: {
     marginTop: 24,
-    backgroundColor: '#2f6feb',
     borderRadius: 8,
     padding: 14,
     alignItems: 'center',
-  },
-  buttonDisabled: {
-    backgroundColor: '#ccc',
   },
   buttonPressed: {
     opacity: 0.8,
   },
   buttonText: {
-    color: '#fff',
     fontSize: 16,
     fontWeight: '600',
   },
@@ -207,7 +208,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   historyLinkText: {
-    color: '#2f6feb',
     fontSize: 15,
     fontWeight: '600',
   },
