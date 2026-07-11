@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { useTheme } from './theme';
 
 export interface ResultCardProps {
   title: string;
@@ -10,6 +11,7 @@ export interface ResultCardProps {
 }
 
 export function ResultCard({ title, compound, single, short, detail }: ResultCardProps) {
+  const theme = useTheme();
   const [expanded, setExpanded] = useState(false);
   const value = `${compound}/${single}`;
   const description = expanded ? detail : short;
@@ -21,10 +23,15 @@ export function ResultCard({ title, compound, single, short, detail }: ResultCar
       accessibilityLabel={`${title} number: ${value}. ${description}`}
       testID={`${title.toLowerCase()}-card`}
     >
-      <View style={styles.card}>
-        <Text style={styles.title}>{title}</Text>
-        <Text style={styles.value}>{value}</Text>
-        <Text style={styles.description}>{description}</Text>
+      <View
+        style={[
+          styles.card,
+          { backgroundColor: theme.cardBackground, borderColor: theme.cardBorder },
+        ]}
+      >
+        <Text style={[styles.title, { color: theme.mutedText }]}>{title}</Text>
+        <Text style={[styles.value, { color: theme.text }]}>{value}</Text>
+        <Text style={[styles.description, { color: theme.text }]}>{description}</Text>
       </View>
     </Pressable>
   );
@@ -33,7 +40,6 @@ export function ResultCard({ title, compound, single, short, detail }: ResultCar
 const styles = StyleSheet.create({
   card: {
     borderWidth: 1,
-    borderColor: '#ddd',
     borderRadius: 12,
     padding: 16,
     marginBottom: 12,
@@ -41,7 +47,6 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#555',
     marginBottom: 4,
   },
   value: {
@@ -51,6 +56,5 @@ const styles = StyleSheet.create({
   description: {
     marginTop: 8,
     fontSize: 14,
-    color: '#333',
   },
 });

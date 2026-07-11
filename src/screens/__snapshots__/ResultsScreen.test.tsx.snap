@@ -3,10 +3,15 @@
 exports[`ResultsScreen renders the three result cards for a fixed name and date 1`] = `
 <View
   style={
-    {
-      "flex": 1,
-      "padding": 24,
-    }
+    [
+      {
+        "flex": 1,
+        "padding": 24,
+      },
+      {
+        "backgroundColor": "#ffffff",
+      },
+    ]
   }
 >
   <View
@@ -45,44 +50,62 @@ exports[`ResultsScreen renders the three result cards for a fixed name and date 
   >
     <View
       style={
-        {
-          "borderColor": "#ddd",
-          "borderRadius": 12,
-          "borderWidth": 1,
-          "marginBottom": 12,
-          "padding": 16,
-        }
+        [
+          {
+            "borderRadius": 12,
+            "borderWidth": 1,
+            "marginBottom": 12,
+            "padding": 16,
+          },
+          {
+            "backgroundColor": "#ffffff",
+            "borderColor": "#dddddd",
+          },
+        ]
       }
     >
       <Text
         style={
-          {
-            "color": "#555",
-            "fontSize": 14,
-            "fontWeight": "600",
-            "marginBottom": 4,
-          }
+          [
+            {
+              "fontSize": 14,
+              "fontWeight": "600",
+              "marginBottom": 4,
+            },
+            {
+              "color": "#555555",
+            },
+          ]
         }
       >
         Psychic
       </Text>
       <Text
         style={
-          {
-            "fontSize": 28,
-            "fontWeight": "700",
-          }
+          [
+            {
+              "fontSize": 28,
+              "fontWeight": "700",
+            },
+            {
+              "color": "#111111",
+            },
+          ]
         }
       >
         23/5
       </Text>
       <Text
         style={
-          {
-            "color": "#333",
-            "fontSize": 14,
-            "marginTop": 8,
-          }
+          [
+            {
+              "fontSize": 14,
+              "marginTop": 8,
+            },
+            {
+              "color": "#111111",
+            },
+          ]
         }
       >
         TODO(vishal): short interpretation for 5
@@ -125,44 +148,62 @@ exports[`ResultsScreen renders the three result cards for a fixed name and date 
   >
     <View
       style={
-        {
-          "borderColor": "#ddd",
-          "borderRadius": 12,
-          "borderWidth": 1,
-          "marginBottom": 12,
-          "padding": 16,
-        }
+        [
+          {
+            "borderRadius": 12,
+            "borderWidth": 1,
+            "marginBottom": 12,
+            "padding": 16,
+          },
+          {
+            "backgroundColor": "#ffffff",
+            "borderColor": "#dddddd",
+          },
+        ]
       }
     >
       <Text
         style={
-          {
-            "color": "#555",
-            "fontSize": 14,
-            "fontWeight": "600",
-            "marginBottom": 4,
-          }
+          [
+            {
+              "fontSize": 14,
+              "fontWeight": "600",
+              "marginBottom": 4,
+            },
+            {
+              "color": "#555555",
+            },
+          ]
         }
       >
         Destiny
       </Text>
       <Text
         style={
-          {
-            "fontSize": 28,
-            "fontWeight": "700",
-          }
+          [
+            {
+              "fontSize": 28,
+              "fontWeight": "700",
+            },
+            {
+              "color": "#111111",
+            },
+          ]
         }
       >
         25/7
       </Text>
       <Text
         style={
-          {
-            "color": "#333",
-            "fontSize": 14,
-            "marginTop": 8,
-          }
+          [
+            {
+              "fontSize": 14,
+              "marginTop": 8,
+            },
+            {
+              "color": "#111111",
+            },
+          ]
         }
       >
         TODO(vishal): short interpretation for 7
@@ -205,44 +246,62 @@ exports[`ResultsScreen renders the three result cards for a fixed name and date 
   >
     <View
       style={
-        {
-          "borderColor": "#ddd",
-          "borderRadius": 12,
-          "borderWidth": 1,
-          "marginBottom": 12,
-          "padding": 16,
-        }
+        [
+          {
+            "borderRadius": 12,
+            "borderWidth": 1,
+            "marginBottom": 12,
+            "padding": 16,
+          },
+          {
+            "backgroundColor": "#ffffff",
+            "borderColor": "#dddddd",
+          },
+        ]
       }
     >
       <Text
         style={
-          {
-            "color": "#555",
-            "fontSize": 14,
-            "fontWeight": "600",
-            "marginBottom": 4,
-          }
+          [
+            {
+              "fontSize": 14,
+              "fontWeight": "600",
+              "marginBottom": 4,
+            },
+            {
+              "color": "#555555",
+            },
+          ]
         }
       >
         Name
       </Text>
       <Text
         style={
-          {
-            "fontSize": 28,
-            "fontWeight": "700",
-          }
+          [
+            {
+              "fontSize": 28,
+              "fontWeight": "700",
+            },
+            {
+              "color": "#111111",
+            },
+          ]
         }
       >
         12/3
       </Text>
       <Text
         style={
-          {
-            "color": "#333",
-            "fontSize": 14,
-            "marginTop": 8,
-          }
+          [
+            {
+              "fontSize": 14,
+              "marginTop": 8,
+            },
+            {
+              "color": "#111111",
+            },
+          ]
         }
       >
         TODO(vishal): short interpretation for 3
@@ -282,22 +341,31 @@ exports[`ResultsScreen renders the three result cards for a fixed name and date 
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
     style={
-      {
-        "alignItems": "center",
-        "backgroundColor": "#eee",
-        "borderRadius": 8,
-        "marginTop": 12,
-        "padding": 14,
-      }
+      [
+        {
+          "alignItems": "center",
+          "borderRadius": 8,
+          "marginTop": 12,
+          "padding": 14,
+        },
+        {
+          "backgroundColor": "#dddddd",
+        },
+      ]
     }
     testID="calculate-again-button"
   >
     <Text
       style={
-        {
-          "fontSize": 16,
-          "fontWeight": "600",
-        }
+        [
+          {
+            "fontSize": 16,
+            "fontWeight": "600",
+          },
+          {
+            "color": "#111111",
+          },
+        ]
       }
     >
       Calculate again
