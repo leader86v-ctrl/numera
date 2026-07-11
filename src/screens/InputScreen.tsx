@@ -43,9 +43,15 @@ export interface InputScreenProps {
   initialName?: string;
   initialDate?: BirthDate;
   onCalculate: (name: string, date: BirthDate) => void;
+  onViewHistory?: () => void;
 }
 
-export function InputScreen({ initialName = '', initialDate, onCalculate }: InputScreenProps) {
+export function InputScreen({
+  initialName = '',
+  initialDate,
+  onCalculate,
+  onViewHistory,
+}: InputScreenProps) {
   const [name, setName] = useState(initialName);
   const [day, setDay] = useState<number | null>(initialDate?.day ?? null);
   const [month, setMonth] = useState<number | null>(initialDate?.month ?? null);
@@ -137,6 +143,18 @@ export function InputScreen({ initialName = '', initialDate, onCalculate }: Inpu
       >
         <Text style={styles.buttonText}>Calculate</Text>
       </Pressable>
+
+      {onViewHistory && (
+        <Pressable
+          accessibilityRole="button"
+          accessibilityLabel="View history"
+          onPress={onViewHistory}
+          testID="view-history-button"
+          style={styles.historyLink}
+        >
+          <Text style={styles.historyLinkText}>View history</Text>
+        </Pressable>
+      )}
     </View>
   );
 }
@@ -182,6 +200,15 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#fff',
     fontSize: 16,
+    fontWeight: '600',
+  },
+  historyLink: {
+    marginTop: 16,
+    alignItems: 'center',
+  },
+  historyLinkText: {
+    color: '#2f6feb',
+    fontSize: 15,
     fontWeight: '600',
   },
 });

@@ -1,8 +1,8 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { ResultCard } from '../components/ResultCard';
 import { getInterpretation } from '../content/interpretations';
-import { nameNumber } from '../logic/chaldean';
-import { destinyNumber, psychicNumber, type BirthDate } from '../logic/dateNumbers';
+import { calculateResult } from '../logic/calculateResult';
+import type { BirthDate } from '../logic/dateNumbers';
 
 export interface ResultsScreenProps {
   name: string;
@@ -11,9 +11,7 @@ export interface ResultsScreenProps {
 }
 
 export function ResultsScreen({ name, date, onCalculateAgain }: ResultsScreenProps) {
-  const psychic = psychicNumber(date.day);
-  const destiny = destinyNumber(date.day, date.month, date.year);
-  const nameResult = nameNumber(name);
+  const { psychic, destiny, name: nameResult } = calculateResult(name, date);
 
   const psychicInterpretation = getInterpretation(psychic.compound, psychic.single);
   const destinyInterpretation = getInterpretation(destiny.compound, destiny.single);
