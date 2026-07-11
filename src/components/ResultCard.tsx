@@ -20,7 +20,7 @@ export function ResultCard({ title, compound, single, short, detail }: ResultCar
     <Pressable
       onPress={() => setExpanded((current) => !current)}
       accessibilityRole="button"
-      accessibilityLabel={`${title} number: ${value}. ${description}`}
+      accessibilityLabel={`${title} number: ${value}. ${description}. ${expanded ? 'Tap to show less.' : 'Tap to show more.'}`}
       testID={`${title.toLowerCase()}-card`}
     >
       <View
@@ -29,7 +29,10 @@ export function ResultCard({ title, compound, single, short, detail }: ResultCar
           { backgroundColor: theme.cardBackground, borderColor: theme.cardBorder },
         ]}
       >
-        <Text style={[styles.title, { color: theme.mutedText }]}>{title}</Text>
+        <View style={styles.header}>
+          <Text style={[styles.title, { color: theme.mutedText }]}>{title}</Text>
+          <Text style={[styles.chevron, { color: theme.mutedText }]}>{expanded ? '⌃' : '⌄'}</Text>
+        </View>
         <Text style={[styles.value, { color: theme.text }]}>{value}</Text>
         <Text style={[styles.description, { color: theme.text }]}>{description}</Text>
       </View>
@@ -44,10 +47,19 @@ const styles = StyleSheet.create({
     padding: 16,
     marginBottom: 12,
   },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
   title: {
     fontSize: 14,
     fontWeight: '600',
     marginBottom: 4,
+  },
+  chevron: {
+    fontSize: 16,
+    fontWeight: '700',
   },
   value: {
     fontSize: 28,

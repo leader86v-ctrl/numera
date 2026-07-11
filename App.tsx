@@ -4,6 +4,7 @@ import { SafeAreaView, StyleSheet } from 'react-native';
 import { InputScreen } from './src/screens/InputScreen';
 import { ResultsScreen } from './src/screens/ResultsScreen';
 import { HistoryScreen } from './src/screens/HistoryScreen';
+import { AppHeader } from './src/components/AppHeader';
 import { useTheme } from './src/components/theme';
 import { calculateResult } from './src/logic/calculateResult';
 import type { BirthDate } from './src/logic/dateNumbers';
@@ -53,6 +54,7 @@ export default function App() {
 
   return (
     <SafeAreaView role="main" style={[styles.container, { backgroundColor: theme.background }]}>
+      <AppHeader onViewHistory={view === 'input' ? () => setView('history') : undefined} />
       {view === 'results' && lastEntry && (
         <ResultsScreen
           name={lastEntry.name}
@@ -73,7 +75,6 @@ export default function App() {
           initialName={lastEntry?.name}
           initialDate={lastEntry?.date}
           onCalculate={handleCalculate}
-          onViewHistory={() => setView('history')}
         />
       )}
       <StatusBar style="auto" />

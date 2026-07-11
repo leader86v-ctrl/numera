@@ -14,8 +14,42 @@ exports[`ResultsScreen renders the three result cards for a fixed name and date 
     ]
   }
 >
+  <Text
+    style={
+      [
+        {
+          "fontSize": 22,
+          "fontWeight": "800",
+          "marginBottom": 4,
+        },
+        {
+          "color": "#111111",
+        },
+      ]
+    }
+  >
+    Your Numbers
+  </Text>
+  <Text
+    style={
+      [
+        {
+          "fontSize": 14,
+          "marginBottom": 20,
+        },
+        {
+          "color": "#555555",
+        },
+      ]
+    }
+  >
+    For 
+    ANNA
+     · born 
+    23/11/1980
+  </Text>
   <View
-    accessibilityLabel="Psychic number: 23/5. Adaptable, curious, and hungry for change."
+    accessibilityLabel="Psychic number: 23/5. Adaptable, curious, and hungry for change.. Tap to show more."
     accessibilityRole="button"
     accessibilityState={
       {
@@ -64,22 +98,47 @@ exports[`ResultsScreen renders the three result cards for a fixed name and date 
         ]
       }
     >
-      <Text
+      <View
         style={
-          [
-            {
-              "fontSize": 14,
-              "fontWeight": "600",
-              "marginBottom": 4,
-            },
-            {
-              "color": "#555555",
-            },
-          ]
+          {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+          }
         }
       >
-        Psychic
-      </Text>
+        <Text
+          style={
+            [
+              {
+                "fontSize": 14,
+                "fontWeight": "600",
+                "marginBottom": 4,
+              },
+              {
+                "color": "#555555",
+              },
+            ]
+          }
+        >
+          Psychic
+        </Text>
+        <Text
+          style={
+            [
+              {
+                "fontSize": 16,
+                "fontWeight": "700",
+              },
+              {
+                "color": "#555555",
+              },
+            ]
+          }
+        >
+          ⌄
+        </Text>
+      </View>
       <Text
         style={
           [
@@ -113,7 +172,7 @@ exports[`ResultsScreen renders the three result cards for a fixed name and date 
     </View>
   </View>
   <View
-    accessibilityLabel="Destiny number: 25/7. Reflective, analytical, and drawn inward."
+    accessibilityLabel="Destiny number: 25/7. Reflective, analytical, and drawn inward.. Tap to show more."
     accessibilityRole="button"
     accessibilityState={
       {
@@ -162,22 +221,47 @@ exports[`ResultsScreen renders the three result cards for a fixed name and date 
         ]
       }
     >
-      <Text
+      <View
         style={
-          [
-            {
-              "fontSize": 14,
-              "fontWeight": "600",
-              "marginBottom": 4,
-            },
-            {
-              "color": "#555555",
-            },
-          ]
+          {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+          }
         }
       >
-        Destiny
-      </Text>
+        <Text
+          style={
+            [
+              {
+                "fontSize": 14,
+                "fontWeight": "600",
+                "marginBottom": 4,
+              },
+              {
+                "color": "#555555",
+              },
+            ]
+          }
+        >
+          Destiny
+        </Text>
+        <Text
+          style={
+            [
+              {
+                "fontSize": 16,
+                "fontWeight": "700",
+              },
+              {
+                "color": "#555555",
+              },
+            ]
+          }
+        >
+          ⌄
+        </Text>
+      </View>
       <Text
         style={
           [
@@ -211,7 +295,7 @@ exports[`ResultsScreen renders the three result cards for a fixed name and date 
     </View>
   </View>
   <View
-    accessibilityLabel="Name number: 12/3. Expressive, creative, and drawn to being heard."
+    accessibilityLabel="Name number: 12/3. Expressive, creative, and drawn to being heard.. Tap to show more."
     accessibilityRole="button"
     accessibilityState={
       {
@@ -260,22 +344,47 @@ exports[`ResultsScreen renders the three result cards for a fixed name and date 
         ]
       }
     >
-      <Text
+      <View
         style={
-          [
-            {
-              "fontSize": 14,
-              "fontWeight": "600",
-              "marginBottom": 4,
-            },
-            {
-              "color": "#555555",
-            },
-          ]
+          {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+          }
         }
       >
-        Name
-      </Text>
+        <Text
+          style={
+            [
+              {
+                "fontSize": 14,
+                "fontWeight": "600",
+                "marginBottom": 4,
+              },
+              {
+                "color": "#555555",
+              },
+            ]
+          }
+        >
+          Name
+        </Text>
+        <Text
+          style={
+            [
+              {
+                "fontSize": 16,
+                "fontWeight": "700",
+              },
+              {
+                "color": "#555555",
+              },
+            ]
+          }
+        >
+          ⌄
+        </Text>
+      </View>
       <Text
         style={
           [

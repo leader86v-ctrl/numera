@@ -38,7 +38,7 @@ describe('HistoryScreen', () => {
       />,
     );
 
-    expect(getByText('No calculations yet.')).toBeTruthy();
+    expect(getByText(/No calculations yet/)).toBeTruthy();
   });
 
   it('lists every entry with its name, date, and results', async () => {
@@ -71,9 +71,9 @@ describe('HistoryScreen', () => {
     expect(onSelectEntry).toHaveBeenCalledWith(ENTRIES[0]);
   });
 
-  it('calls onDeleteEntry with the tapped entry id', async () => {
+  it('requires a confirm tap before calling onDeleteEntry', async () => {
     const onDeleteEntry = jest.fn();
-    const { getByTestId } = await render(
+    const { getByTestId, queryByTestId } = await render(
       <HistoryScreen
         entries={ENTRIES}
         onSelectEntry={() => {}}
@@ -83,8 +83,30 @@ describe('HistoryScreen', () => {
     );
 
     await fireEvent.press(getByTestId('history-delete-entry-2'));
+    expect(onDeleteEntry).not.toHaveBeenCalled();
+    expect(queryByTestId('history-confirm-delete-entry-2')).toBeTruthy();
 
+    await fireEvent.press(getByTestId('history-confirm-delete-entry-2'));
     expect(onDeleteEntry).toHaveBeenCalledWith('entry-2');
+  });
+
+  it('cancels the pending delete without calling onDeleteEntry', async () => {
+    const onDeleteEntry = jest.fn();
+    const { getByTestId, queryByTestId } = await render(
+      <HistoryScreen
+        entries={ENTRIES}
+        onSelectEntry={() => {}}
+        onDeleteEntry={onDeleteEntry}
+        onBack={() => {}}
+      />,
+    );
+
+    await fireEvent.press(getByTestId('history-delete-entry-2'));
+    await fireEvent.press(getByTestId('history-cancel-delete-entry-2'));
+
+    expect(onDeleteEntry).not.toHaveBeenCalled();
+    expect(queryByTestId('history-confirm-delete-entry-2')).toBeNull();
+    expect(getByTestId('history-delete-entry-2')).toBeTruthy();
   });
 
   it('calls onBack when the back button is pressed', async () => {
