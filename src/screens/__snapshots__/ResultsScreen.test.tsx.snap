@@ -15,7 +15,7 @@ exports[`ResultsScreen renders the three result cards for a fixed name and date 
   }
 >
   <View
-    accessibilityLabel="Psychic number: 23/5. TODO(vishal): short interpretation for 5"
+    accessibilityLabel="Psychic number: 23/5. Adaptable, curious, and hungry for change."
     accessibilityRole="button"
     accessibilityState={
       {
@@ -108,12 +108,12 @@ exports[`ResultsScreen renders the three result cards for a fixed name and date 
           ]
         }
       >
-        TODO(vishal): short interpretation for 5
+        Adaptable, curious, and hungry for change.
       </Text>
     </View>
   </View>
   <View
-    accessibilityLabel="Destiny number: 25/7. TODO(vishal): short interpretation for 7"
+    accessibilityLabel="Destiny number: 25/7. Reflective, analytical, and drawn inward."
     accessibilityRole="button"
     accessibilityState={
       {
@@ -206,12 +206,12 @@ exports[`ResultsScreen renders the three result cards for a fixed name and date 
           ]
         }
       >
-        TODO(vishal): short interpretation for 7
+        Reflective, analytical, and drawn inward.
       </Text>
     </View>
   </View>
   <View
-    accessibilityLabel="Name number: 12/3. TODO(vishal): short interpretation for 3"
+    accessibilityLabel="Name number: 12/3. Expressive, creative, and drawn to being heard."
     accessibilityRole="button"
     accessibilityState={
       {
@@ -304,7 +304,7 @@ exports[`ResultsScreen renders the three result cards for a fixed name and date 
           ]
         }
       >
-        TODO(vishal): short interpretation for 3
+        Expressive, creative, and drawn to being heard.
       </Text>
     </View>
   </View>
